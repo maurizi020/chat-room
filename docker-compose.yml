@@ -10,6 +10,7 @@ services:
     environment: 
       - DEBUG=index
       - MONGO_URL=mongodb://mongo/mydatabase
+      - SERVER_PORT=3000
     links: 
       - mongo
     volumes: 
