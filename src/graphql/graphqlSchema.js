@@ -33,10 +33,15 @@ const typeDefs = `
   }
 
   type Mutation {
-    createUser(input: userInput): user
+    
+  }
+  type Query {
+    
   }
 
 `;
+
+// createUser(input: userInput): user
 
 export default makeExecutableSchema({
   typeDefs,
