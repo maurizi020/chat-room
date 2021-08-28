@@ -11,7 +11,7 @@
     "start": "npm run build && node ./dist/index.js",
     "serve": "babel-node ./src/index.js",
     "clean": "rm -rf dist && mkdir dist",
-    "build-babel": "babel -d ./dist ./index.js -s",
+    "build-babel": "babel -d ./dist ./src -s",
     "build": "npm run clean && npm run build-babel",
     "lint": "eslint . --ext .js"
   },
@@ -28,6 +28,7 @@
   "dependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
+    "@graphql-tools/schema": "^8.1.2",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
     "express": "^4.17.1",
