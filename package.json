@@ -8,7 +8,12 @@
     "npm": "6.14.13"
   },
   "scripts": {
-    "serve": "node src/index.js"
+    "start": "npm run build && node ./dist/index.js",
+    "serve": "babel-node ./src/index.js",
+    "clean": "rm -rf dist && mkdir dist",
+    "build-babel": "babel -d ./dist ./index.js -s",
+    "build": "npm run clean && npm run build-babel",
+    "lint": "eslint . --ext .js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +26,8 @@
   },
   "homepage": "https://github.com/maurizi020/chat-room#readme",
   "dependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
     "express": "^4.17.1",
@@ -28,5 +35,16 @@
     "graphql": "^15.5.1",
     "graphql-tools": "^8.1.0",
     "mongoose": "^6.0.2"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.14.9",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/runtime": "^7.15.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2"
   }
 }
