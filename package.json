@@ -21,10 +21,12 @@
   },
   "homepage": "https://github.com/maurizi020/chat-room#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "debug": "^4.3.2",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.5.1",
+    "graphql-tools": "^8.1.0",
     "mongoose": "^6.0.2"
   }
 }
