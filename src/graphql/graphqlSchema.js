@@ -1,4 +1,4 @@
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import queries from './resolvers/queries';
 import mutations from './resolvers/mutations';
 
@@ -33,15 +33,14 @@ const typeDefs = `
   }
 
   type Mutation {
-    
+    setUser(input: userInput): user
   }
+
   type Query {
-    
+    getUser(name: String): user
   }
 
 `;
-
-// createUser(input: userInput): user
 
 export default makeExecutableSchema({
   typeDefs,
