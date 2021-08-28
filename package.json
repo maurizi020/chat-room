@@ -1,0 +1,30 @@
+{
+  "name": "chat-room",
+  "version": "1.0.0",
+  "description": "backend de una sala de chat",
+  "main": "index.js",
+  "engines": {
+    "node": "14.17",
+    "npm": "6.14.13"
+  },
+  "scripts": {
+    "serve": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maurizi020/chat-room.git"
+  },
+  "author": "Michele Sanseviero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maurizi020/chat-room/issues"
+  },
+  "homepage": "https://github.com/maurizi020/chat-room#readme",
+  "dependencies": {
+    "debug": "^4.3.2",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1",
+    "mongoose": "^6.0.2"
+  }
+}
