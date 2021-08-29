@@ -11,7 +11,6 @@ const typeDefs = `
 
   input userInput {
     name: String
-    id: ID
   }
 
   type message {
