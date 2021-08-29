@@ -1,0 +1,23 @@
+version: "3.3"
+
+services: 
+  api_server:
+    container_name: chat-room-api_server
+    restart: always
+    build: .
+    ports: 
+      - "4000:3000"
+    environment: 
+      - DEBUG=index,mutations
+      - MONGO_URL=mongodb://mongo/mydatabase
+      - SERVER_PORT=3000
+    links: 
+      - mongo
+    volumes: 
+      - .:/usr/src/app
+  mongo:
+    image: mongo:4.4.8
+    ports: 
+      - "27018:27017"
+    logging: 
+      driver: none
