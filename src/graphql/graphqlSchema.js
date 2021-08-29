@@ -22,7 +22,7 @@ const typeDefs = `
   }
 
   type chat {
-    recipient: ID
+    recipient: String
     messages: [message]
   }
 
