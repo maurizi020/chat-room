@@ -2,10 +2,39 @@ import express from 'express';
 import DEBUG from 'debug';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { createServer } from 'http';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
+import { execute, subscribe } from 'graphql';
+import schema from './graphql/graphqlSchema';
 import router from './routes/routes';
 
-const app = express();
 const debug = DEBUG('index');
+
+// Create express server
+const app = express();
+
+// Create WebSocket listener server
+const websocketServer = createServer((_request, response) => {
+  response.writeHead(404);
+  response.end();
+});
+
+// Bind it to port and start listening
+websocketServer.listen(process.env.WS_PORT, () => debug(
+  `Websocket Server is now running on http://localhost:${process.env.WS_PORT}`,
+));
+
+SubscriptionServer.create(
+  {
+    schema,
+    execute,
+    subscribe,
+  },
+  {
+    server: websocketServer,
+    path: '/chats',
+  },
+);
 
 debug('connect with database:\n');
 
