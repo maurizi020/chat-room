@@ -1,16 +1,20 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import queries from './resolvers/queries';
 import mutations from './resolvers/mutations';
+import subscription from './resolvers/subscription';
 
 const resolvers = {
   Query: queries,
   Mutation: mutations,
+  Subscription: subscription,
 };
 
 const typeDefs = `
-
-  input userInput {
-    name: String
+  input messageInput {
+    timestamp: Float
+    message: String
+    typography: String
+    color: String
   }
 
   type message {
@@ -20,25 +24,17 @@ const typeDefs = `
     color: String
   }
 
-  type chat {
-    recipient: String
-    messages: [message]
-  }
-
-  type user {
-    name: String
-    chats: [chat]
-    id: ID
+  type Query {
+    getMessages: [message]
   }
 
   type Mutation {
-    setUser(input: userInput): user
+    addMessage(input: messageInput): message
   }
 
-  type Query {
-    getUser(name: String): user
+  type Subscription{
+    newMessage: message
   }
-
 `;
 
 export default makeExecutableSchema({
