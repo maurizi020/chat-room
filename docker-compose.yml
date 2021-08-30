@@ -6,11 +6,13 @@ services:
     restart: always
     build: .
     ports: 
-      - "4000:3000"
+      - "3000:3000"
+      - "3001:3000"
     environment: 
       - DEBUG=index,mutations
       - MONGO_URL=mongodb://mongo/mydatabase
       - SERVER_PORT=3000
+      - WS_PORT=3001
     links: 
       - mongo
     volumes: 
