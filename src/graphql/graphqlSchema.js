@@ -1,7 +1,7 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import queries from './resolvers/queries';
 import mutations from './resolvers/mutations';
-import subscription from './resolvers/subscription';
+import { subscription } from './resolvers/subscription';
 
 const resolvers = {
   Query: queries,
@@ -11,6 +11,7 @@ const resolvers = {
 
 const typeDefs = `
   input messageInput {
+    userName: String
     timestamp: Float
     message: String
     typography: String
