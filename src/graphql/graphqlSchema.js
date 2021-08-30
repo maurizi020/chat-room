@@ -19,6 +19,7 @@ const typeDefs = `
   }
 
   type message {
+    userName: String
     timestamp: Float
     message: String
     typography: String
