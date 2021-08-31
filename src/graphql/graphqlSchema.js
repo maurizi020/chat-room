@@ -13,15 +13,16 @@ const typeDefs = `
   input messageInput {
     userName: String
     timestamp: Float
-    message: String
+    text: String
     typography: String
     color: String
   }
 
   type message {
+    _id: ID
     userName: String
     timestamp: Float
-    message: String
+    text: String
     typography: String
     color: String
   }

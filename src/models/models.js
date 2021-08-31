@@ -3,7 +3,7 @@ import { Schema, model } from 'mongoose';
 const messageSchema = new Schema({
   userName: String,
   timestamp: Number,
-  message: String,
+  text: String,
   typography: String,
   color: String,
 });
