@@ -6,10 +6,10 @@ const debug = DEBUG('mutations');
 
 const mutations = {
   addMessage: async (_, { input }) => {
-    debug('Mutation addMessage input: ', input);
     const newMessage = new Messages(input);
     await newMessage.save();
     pubsub.publish('chatRoom', { newMessage });
+    debug('Mutation addMessage input: ', newMessage);
     return newMessage;
   },
 };
