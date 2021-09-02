@@ -11,11 +11,11 @@ const resolvers = {
 
 const typeDefs = `
   input messageInput {
-    userName: String
-    timestamp: Float
-    text: String
-    typography: String
-    color: String
+    userName: String!
+    timestamp: Float!
+    text: String!
+    typography: String!
+    color: String!
   }
 
   type message {
@@ -29,6 +29,7 @@ const typeDefs = `
 
   type Query {
     getMessages: [message]
+    searchMessage(input: String!): [message]
   }
 
   type Mutation {
