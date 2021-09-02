@@ -4,11 +4,21 @@ import Messages from '../../models/models';
 const debug = DEBUG('queries');
 
 const queries = {
+  /**
+   * 
+   * @returns returns the complete list of all messages that are stored in the database
+   */
   getMessages: async () => {
     const messageList = await Messages.find();
     debug('Query getMessage, number of message: ', messageList.length);
     return messageList;
   },
+  /**
+   * 
+   * @param {*} _ 
+   * @param {String} input  
+   * @returns returns a list with all the messages that match the input parameter
+   */
   searchMessage: async (_, { input }) => {
     const messageList = await Messages.find();
     const resultList = [];

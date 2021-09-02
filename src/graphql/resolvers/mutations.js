@@ -5,6 +5,12 @@ import Messages from '../../models/models';
 const debug = DEBUG('mutations');
 
 const mutations = {
+  /**
+   * 
+   * @param {*} _ 
+   * @param {Message} input 
+   * @returns returns the message saved in the database
+   */
   addMessage: async (_, { input }) => {
     const newMessage = new Messages(input);
     await newMessage.save();
